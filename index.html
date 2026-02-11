@@ -15,6 +15,17 @@ body {
   margin: 0;
 }
 
+.browser-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #e8eaed;
+  padding: 8px;
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+}
+
 .card {
   background: white;
   width: 420px;
@@ -22,13 +33,6 @@ body {
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: center;
-  transition: all 0.4s ease;
-}
-
-.small-note {
-  font-size: 12px;
-  color: #777;
-  margin-bottom: 15px;
 }
 
 .captcha-box {
@@ -46,22 +50,24 @@ button {
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 button:hover {
   background: #357ae8;
 }
 
-.warning {
-  color: #c62828;
-  font-weight: bold;
-  margin-top: 15px;
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4285f4;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
 }
 
-ul {
-  text-align: left;
-  margin-top: 10px;
+@keyframes spin {
+  100% { transform: rotate(360deg); }
 }
 
 .fade {
@@ -69,71 +75,41 @@ ul {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.warning {
+  color: #c62828;
+  font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card" id="content">
-
-<div class="small-note">
-Internal Security Awareness Simulation
+<div class="browser-bar">
+🔒 Secure verification session active
 </div>
+
+<div class="card" id="content">
 
 <h2>Verify you are human</h2>
 
 <p>This page requires additional verification.</p>
 
 <div class="captcha-box">
-  <p><b>Step 1:</b> Press <kbd>Windows + R</kbd></p>
-  <p><b>Step 2:</b> Press <kbd>Ctrl + V</kbd></p>
+  <p><b>Step 1:</b> Press Windows + R</p>
+  <p><b>Step 2:</b> Press Ctrl + V</p>
   <p><b>Step 3:</b> Press Enter</p>
 
-  <button onclick="revealTraining()">I'm not a robot</button>
+  <button onclick="startVerification()">I'm not a robot</button>
 </div>
 
 </div>
 
 <script>
-function revealTraining() {
+function startVerification() {
   document.getElementById("content").innerHTML = `
-  <div class="fade">
-
-  <h2>🚨 Security Awareness Training</h2>
-
-  <p>You just encountered a <b>simulated fake CAPTCHA attack</b>.</p>
-
-  <div class="warning">
-  Real malicious websites use this trick to run malware.
-  </div>
-
-  <h3>Red flags to watch for:</h3>
-
-  <ul>
-    <li>Websites asking you to run keyboard commands</li>
-    <li>Instructions to paste into Run / PowerShell</li>
-    <li>Urgent or unusual verification steps</li>
-    <li>Unexpected security prompts</li>
-  </ul>
-
-  <h3>If this happens in real life:</h3>
-
-  <ul>
-    <li>Close the browser immediately</li>
-    <li>Do NOT paste or run unknown commands</li>
-    <li>Report it to IT/security</li>
-  </ul>
-
-  <button onclick="location.reload()">Restart simulation</button>
-
-  </div>
-  `;
-}
-</script>
-
-</body>
-</html>
-
+    <h2>Verifying...</h2>
+    <div class="spinner"></div>
