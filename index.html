@@ -169,21 +169,39 @@ function showTraining() {
   <p>You interacted with a simulated fake CAPTCHA attack.</p>
 
   <p class="warning">
-  The red areas below show exactly what attackers use.
+  Below are the exact red flags from the simulation:
   </p>
 
-  <div class="captcha-box">
+  <div class="captcha-box" style="text-align:left;">
 
     <div class="red-flag">
-      ⚠️ Asking you to run keyboard commands
+      <b>⚠️ Asking you to run keyboard commands</b><br>
+      Example from the page:<br>
+      <code>Press Windows + R → Ctrl + V → Enter</code><br>
+      <small>
+      Legitimate websites never ask you to run system commands.
+      This is how malware gets executed.
+      </small>
     </div>
 
     <div class="red-flag">
-      ⚠️ Instructions no legitimate website would request
+      <b>⚠️ Instructions no legitimate website would request</b><br>
+      Example from the page:<br>
+      <code>Security verification required to continue</code><br>
+      <small>
+      Attackers invent fake verification steps to trick users.
+      Real captchas never involve system shortcuts.
+      </small>
     </div>
 
     <div class="red-flag">
-      ⚠️ Urgent verification pressure
+      <b>⚠️ Urgent verification pressure</b><br>
+      Example from the page:<br>
+      <code>Press Enter immediately</code><br>
+      <small>
+      Urgency is used to stop you from thinking critically.
+      Slowing down helps you spot scams.
+      </small>
     </div>
 
   </div>
@@ -192,6 +210,7 @@ function showTraining() {
 
   <ul style="text-align:left;">
     <li>Never paste commands from a website</li>
+    <li>Pause when something feels unusual</li>
     <li>Close suspicious pages immediately</li>
     <li>Report to IT/security</li>
   </ul>
@@ -199,6 +218,7 @@ function showTraining() {
   <button onclick="location.reload()">Try again</button>
   `;
 }
+
 </script>
 
 </body>
