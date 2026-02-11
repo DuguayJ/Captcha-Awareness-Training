@@ -16,7 +16,6 @@ body {
   color: white;
   padding: 14px;
   text-align: center;
-  font-size: 18px;
 }
 
 .notice {
@@ -36,35 +35,36 @@ body {
 
 .card {
   background: white;
-  width: 480px;
+  width: 520px;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: center;
-}
-
-.highlight {
-  background: #e3f2fd;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 15px;
-  font-weight: bold;
+  position: relative;
 }
 
 .captcha-box {
   border: 2px solid #ddd;
   padding: 20px;
   border-radius: 6px;
-  margin-top: 20px;
+  margin-top: 15px;
+  position: relative;
 }
 
 .tip-box {
-  margin-top: 20px;
+  margin-top: 15px;
   background: #f1f3f4;
   padding: 12px;
   border-radius: 6px;
-  font-size: 14px;
   text-align: left;
+}
+
+.highlight-instruction {
+  margin-top: 20px;
+  font-weight: bold;
+  background: #e3f2fd;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 button {
@@ -91,6 +91,14 @@ button {
   100% { transform: rotate(360deg); }
 }
 
+.red-flag {
+  border: 2px solid red;
+  background: rgba(255,0,0,0.05);
+  padding: 6px;
+  border-radius: 4px;
+  margin: 6px 0;
+}
+
 .warning {
   color: #c62828;
   font-weight: bold;
@@ -105,16 +113,12 @@ button {
 </div>
 
 <div class="notice">
-This is a controlled internal training simulation. No personal data is collected.
+Controlled internal training simulation — no personal data collected
 </div>
 
 <div class="container">
 
 <div class="card" id="content">
-
-<div class="highlight">
-👉 Training exercise: Please click <b>"I'm not a robot"</b> below to continue.
-</div>
 
 <h2>Verify you are human</h2>
 
@@ -122,22 +126,25 @@ This is a controlled internal training simulation. No personal data is collected
 
 <div class="captcha-box">
 
-<p><b>Step 1:</b> Press Windows + R</p>
-<p><b>Step 2:</b> Press Ctrl + V</p>
-<p><b>Step 3:</b> Press Enter immediately</p>
-
-<button onclick="startVerification()">I'm not a robot</button>
+<p class="red-flag"><b>Step 1:</b> Press Windows + R</p>
+<p class="red-flag"><b>Step 2:</b> Press Ctrl + V</p>
+<p class="red-flag"><b>Step 3:</b> Press Enter immediately</p>
 
 </div>
 
 <div class="tip-box">
-<b>While interacting, notice:</b>
+<b>Before continuing, think about:</b>
 <ul>
-<li>Is this verification method normal?</li>
-<li>Are you being asked to run commands?</li>
-<li>Does the page feel suspicious?</li>
-<li>Would you trust this on the internet?</li>
+<li>Would a real website ask me to run keyboard commands?</li>
+<li>Have I ever seen this verification before?</li>
+<li>Does this request feel suspicious?</li>
 </ul>
+</div>
+
+<div class="highlight-instruction">
+👉 After reading the tips above, click below to test the simulation
+<br><br>
+<button onclick="startVerification()">I'm not a robot</button>
 </div>
 
 </div>
@@ -157,29 +164,36 @@ function startVerification() {
 
 function showTraining() {
   document.getElementById("content").innerHTML = `
-  <h2>🚨 Training Reflection</h2>
+  <h2>🚨 Training Breakdown</h2>
 
-  <p>You just interacted with a simulated fake CAPTCHA attack.</p>
+  <p>You interacted with a simulated fake CAPTCHA attack.</p>
 
   <p class="warning">
-  Did you notice the warning signs?
+  The red areas below show exactly what attackers use.
   </p>
 
-  <h3>Red flags in this simulation:</h3>
+  <div class="captcha-box">
+
+    <div class="red-flag">
+      ⚠️ Asking you to run keyboard commands
+    </div>
+
+    <div class="red-flag">
+      ⚠️ Instructions no legitimate website would request
+    </div>
+
+    <div class="red-flag">
+      ⚠️ Urgent verification pressure
+    </div>
+
+  </div>
+
+  <h3>Key lesson:</h3>
 
   <ul style="text-align:left;">
-    <li>Instructions to paste keyboard commands</li>
-    <li>Unusual verification steps</li>
-    <li>Urgent security messaging</li>
-    <li>Requests no legitimate site would make</li>
-  </ul>
-
-  <h3>Remember:</h3>
-
-  <ul style="text-align:left;">
-    <li>Real websites never ask you to paste commands</li>
+    <li>Never paste commands from a website</li>
     <li>Close suspicious pages immediately</li>
-    <li>Report incidents to IT/security</li>
+    <li>Report to IT/security</li>
   </ul>
 
   <button onclick="location.reload()">Try again</button>
@@ -189,4 +203,3 @@ function showTraining() {
 
 </body>
 </html>
-
