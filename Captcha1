@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Security Check</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
+  #captcha { padding: 20px; border: 2px solid #ccc; display: inline-block; margin: 20px; }
+</style>
+</head>
+<body>
+
+<div id="captcha">
+  <h2>Verify You Are Human</h2>
+  <button onclick="showTraining()">I'm not a robot</button>
+</div>
+
+<script>
+function showTraining() {
+  document.getElementById("captcha").innerHTML =
+    "<h2>Simulation Complete</h2>" +
+    "<p>This was a fake CAPTCHA awareness simulation.</p>" +
+    "<p>Real fake-CAPTCHA social engineering may try to trick you into running commands or providing credentials.</p>" +
+    "<p>Always verify the legitimacy of suspicious prompts.</p>";
+}
+</script>
+
+</body>
+</html>
