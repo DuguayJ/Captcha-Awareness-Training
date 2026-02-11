@@ -31,16 +31,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 120px);
 }
 
 .card {
   background: white;
-  width: 450px;
+  width: 480px;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: center;
+}
+
+.highlight {
+  background: #e3f2fd;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .captcha-box {
@@ -97,13 +105,16 @@ button {
 </div>
 
 <div class="notice">
-This is a controlled internal training simulation.
-No personal information is collected.
+This is a controlled internal training simulation. No personal data is collected.
 </div>
 
 <div class="container">
 
 <div class="card" id="content">
+
+<div class="highlight">
+👉 Training exercise: Please click <b>"I'm not a robot"</b> below to continue.
+</div>
 
 <h2>Verify you are human</h2>
 
@@ -120,12 +131,12 @@ No personal information is collected.
 </div>
 
 <div class="tip-box">
-<b>Training Tip:</b><br>
-While interacting with this page, ask yourself:
+<b>While interacting, notice:</b>
 <ul>
-<li>Does this request seem unusual?</li>
-<li>Have I seen this verification before?</li>
-<li>Is the site asking me to run commands?</li>
+<li>Is this verification method normal?</li>
+<li>Are you being asked to run commands?</li>
+<li>Does the page feel suspicious?</li>
+<li>Would you trust this on the internet?</li>
 </ul>
 </div>
 
@@ -146,27 +157,36 @@ function startVerification() {
 
 function showTraining() {
   document.getElementById("content").innerHTML = `
-  <h2>🚨 Training Complete</h2>
+  <h2>🚨 Training Reflection</h2>
 
   <p>You just interacted with a simulated fake CAPTCHA attack.</p>
 
   <p class="warning">
-  Real attackers use this technique to install malware.
+  Did you notice the warning signs?
   </p>
 
-  <h3>Key takeaways:</h3>
+  <h3>Red flags in this simulation:</h3>
 
   <ul style="text-align:left;">
-    <li>Legitimate websites never ask you to paste commands</li>
-    <li>Unexpected keyboard instructions are a major red flag</li>
+    <li>Instructions to paste keyboard commands</li>
+    <li>Unusual verification steps</li>
+    <li>Urgent security messaging</li>
+    <li>Requests no legitimate site would make</li>
+  </ul>
+
+  <h3>Remember:</h3>
+
+  <ul style="text-align:left;">
+    <li>Real websites never ask you to paste commands</li>
     <li>Close suspicious pages immediately</li>
     <li>Report incidents to IT/security</li>
   </ul>
 
-  <button onclick="location.reload()">Restart simulation</button>
+  <button onclick="location.reload()">Try again</button>
   `;
 }
 </script>
 
 </body>
 </html>
+
