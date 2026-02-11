@@ -2,28 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Security Check</title>
+<title>Security Verification</title>
+
 <style>
-  body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
-  #captcha { padding: 20px; border: 2px solid #ccc; display: inline-block; margin: 20px; }
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  background: white;
+  width: 420px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.small-note {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.captcha-box {
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+button {
+  background: #4285f4;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #357ae8;
+}
+
+.warning {
+  color: #c62828;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+ul {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.fade {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
+
 <body>
 
-<div id="captcha">
-  <h2>Verify You Are Human</h2>
-  <button onclick="showTraining()">I'm not a robot</button>
+<div class="card" id="content">
+
+<div class="small-note">
+Internal Security Awareness Simulation
+</div>
+
+<h2>Verify you are human</h2>
+
+<p>This page requires additional verification.</p>
+
+<div class="captcha-box">
+  <p><b>Step 1:</b> Press <kbd>Windows + R</kbd></p>
+  <p><b>Step 2:</b> Press <kbd>Ctrl + V</kbd></p>
+  <p><b>Step 3:</b> Press Enter</p>
+
+  <button onclick="revealTraining()">I'm not a robot</button>
+</div>
+
 </div>
 
 <script>
-function showTraining() {
-  document.getElementById("captcha").innerHTML =
-    "<h2>Simulation Complete</h2>" +
-    "<p>This was a fake CAPTCHA awareness simulation.</p>" +
-    "<p>Real fake-CAPTCHA social engineering may try to trick you into running commands or providing credentials.</p>" +
-    "<p>Always verify the legitimacy of suspicious prompts.</p>";
+function revealTraining() {
+  document.getElementById("content").innerHTML = `
+  <div class="fade">
+
+  <h2>🚨 Security Awareness Training</h2>
+
+  <p>You just encountered a <b>simulated fake CAPTCHA attack</b>.</p>
+
+  <div class="warning">
+  Real malicious websites use this trick to run malware.
+  </div>
+
+  <h3>Red flags to watch for:</h3>
+
+  <ul>
+    <li>Websites asking you to run keyboard commands</li>
+    <li>Instructions to paste into Run / PowerShell</li>
+    <li>Urgent or unusual verification steps</li>
+    <li>Unexpected security prompts</li>
+  </ul>
+
+  <h3>If this happens in real life:</h3>
+
+  <ul>
+    <li>Close the browser immediately</li>
+    <li>Do NOT paste or run unknown commands</li>
+    <li>Report it to IT/security</li>
+  </ul>
+
+  <button onclick="location.reload()">Restart simulation</button>
+
+  </div>
+  `;
 }
 </script>
 
 </body>
 </html>
+
